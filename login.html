@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Login</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		 <link rel="stylesheet" href="main.css">
+		<script type="text/javascript">
+		function validar()
+		{
+			var usuario = document.getElementById("usuario").value;
+			var Contraseña = document.getElementById("nip").value;	
+
+			if(usuario == "carlos" && Contraseña == "9012")
+			{
+				 window.location.href = "paginaprincipal.html";
+				return false;
+			}
+			else
+			{
+				alert("Verifique sus datos");
+			}
+		}
+
+
+	</script>
+	</head>
+	<body>
+    	<div class="content" >
+			<div class="contact-wrapper ">
+				<div class="contact-form">
+					<h1>Bienvenido</h1>
+						<form action="" name="login">
+							 <p class="block">
+								 <label class="fa fa-user-circle" aria-hidden="true">Usuario</label>
+								 <input type="text" id="usuario" name="usuario">
+							 </p>
+							 <p class="block">
+								 <label class="fa fa-lock" aria-hidden="true">NIP</label> 
+								 <input type="password" id="nip" name="nip">
+
+							 </p>
+								 <p class="block">
+									 <button id ="btn" onclick="return validar()">Iniciar Sesión</button>
+								 </p>
+						 </form>
+   
+							<input type="checkbox" name="nombre" >Recordarme
+				</div>
+				 <div class="cat">
+					 <h2>"La disciplina es el puente entre metas y logros"
+								-Jim Rohn</h2>
+					<img src="foto.jpeg" />
+				 </div>
+				 <div class="v-line">
+				 </div>			 
+		   </div>
+
+		</div>
+	</body>
+	
+</html>

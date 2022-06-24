@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+	initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Sistema ITCH</title>
+		<!-- Icono -->
+		<link rel="shorcut icon" type="image/x-icon" href="Imágenes/tecnm.ico">
+		<!-- Fuentes -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/7e5b2d153f.js" crosorigin="anonymus"></script>
+		<!-- Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+
+
+	<!-- Comienzo del body -->
+	<body>
+
+		<div class="contenedor">
+			<!-- Comienzo del header -->
+			<header>
+				<!-- Menú oculto p1 -->
+				<div class="opciones" id="opciones_menu_hide">
+					<ul>
+						<li><img src="Imágenes/diskette.png" class="save" id="id_save"></li>
+						<li><img src="Imágenes/repo.png" class="rep-planeaciones" id="id_planeaciones"></li>
+						<li><a href="" onclick="openPDF()"><img src="Imágenes/pdf.png"></a></li>
+						<!-- Regresa al menú principal -->
+						<li><a href="paginaprincipal.html"><img src="Imágenes/house.png"></a></li>
+					</ul>
+				</div>
+				<!-- Menú oculto p2 -->
+				<div class="menu_hide">
+					<div class="icon_abrir"><img src="Imágenes/sort-down.png" width="80%" height="80%"></div>
+					<div class="icon_cerrar"><img src="Imágenes/sort-up.png" width="80%" height="80%"></div>
+				</div>
+
+
+
+				<nav class="menu">
+					<ul class="nav_menu" id="nav_menu_id">
+						<li><b href="actividades de aprendizaje.html" class="aprendizaje">ACTIVIDADES Y COMPETENCIAS</b></li>
+						<li><a href="alcance.html">IDENTIFICADORES DE ALCANCE</a></li>
+						<li><a href="evaluacion formativa.html">EVALUACIÓN FORMATIVA</a></li>
+						<li><a href="calend_temas.html">CALENDARIZACIÓN</a></li>
+						<li><a href="apoyo_didactico.html">APOYO DIDÁCTICO</a></li>
+					</ul>
+					<button class="toggle" id="menu_toggle">
+							<i class="fas fa-bars"></i>
+					</button>
+				</nav>
+				
+			</header>
+			<!-- Botón para visualizar la información general de la asignatura -->
+			<button class="btn_asig" id="btn-asig">Lenguajes de interfaz</button>
+			<!-- Pop up de la info general de la asignatura -->
+			<div class="pop-up-info-asig" id="pop_up_info_asig"> 
+				<div class="info_asig">
+					<!-- Encabezado de la ventana -->
+					<h2>Información general de la asignatura
+						<div class="Close-Overlay" id="Close_Overlay"><img src="Imágenes/close_white.png" width="15px" height="15px"></div>
+					</h2>
+					<!-- Contenido -->
+						<center class="datos_asig">
+							<p>
+								Asignatura: Lenguajes de interfaz			Clave: SCC-1014<br />
+								<br />
+								Departamento: Departamento de Sistemas y Computación<br />
+								<br />
+								Horas teoricas: 3		Horas prácticas: 2	Período: Feb-Jun/2022
+							</p>
+						</center>
+				</div>
+			</div>	
+
+			<!-- Pop up para guardar la info -->
+			<div class="pop-up-save" id="pop_up_save">
+				<div class="ventana_save">
+					<img src="Imágenes/alert.png">
+					<p>¿Desea guardar los cambios?</p>
+					<button class="btn-guardar" id="btn_guardar">Guardar</button>
+					<button class="btn-cancelar" id="btn_cancelar">Cancelar</button>
+				</div>
+			</div>
+
+
+			<!-- Pop up para cargar planeaciones -->
+			<div class="pop-up-upload-plan" id="pop_up_upload_plan">
+				<div class="ventana_planeaciones">
+					<div class="encabezado_planeaciones">Repositorio de planeaciones</div>
+					<div>
+						<p>Seleccione la planeacion que desee</p>
+						<ul>
+							<li><input type="radio" name="opcion-planeaciones" value="opcion-1" id="opcion_planeacion_1"><label for="opcion-1" onclick="openPDF()"> Docente: Lucy Cárdenas | Feb/Jun 2020-Lenguajes de interfaz I6A</label></li>
+							<li><input type="radio" name="opcion-planeaciones" value="opcion-2" id="opcion_planeacion_2"><label for="opcion-2" onclick="openPDF()"> Docente: Zarina Basulto | Ago/Dic 2018-Lenguajes de interfaz I6B</label></li>
+						</ul>
+						<button class="btn-guardar-plan" id="btn_guardar_plan">Guardar</button>
+						<button class="btn-cancelar-plan" id="btn_cancelar_plan">Cancelar</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Pop up para ver el contenido de cada tema -->
+			<div class="pop-up-cont-tema" id="pop_up_cont_tema">
+				<div class="ventana_cont_tema">
+					<div class="encabezado_temas_asig">Temas de la asignatura
+						<div class="Close-Overlay" id="close_overlay_temas"><img src="Imágenes/close_white.png" width="15px" height="15px"></div>
+					</div>
+					<div class="temas-asignatura">
+						Tema 1: Introducción al lenguaje ensamblador
+						<ul>
+							<li>Importancia de la programación en el lenguaje ensamblador</li>
+							<li>Procesador y sus registros internos</li>
+							<li>La memoria principal (RAM)</li>
+							<li>El concepto de interrupciones</li>
+							<li>Llamadas al servicio del sistema</li>
+							<li>Modos de direccionamiento</li>
+						</ul><br>
+						Tema 2: Programación básica
+						<ul>
+							<li>Ensamblador (y ligador) a utilizar</li>
+							<li>Cilcos númericos</li>
+							<li>Captura básica de cadenas</li>
+							<li>Comparación y prueba</li>
+							<li>Saltos</li>
+							<li>Ciclos condicionales</li>
+						</ul><br>
+						Tema 3: Modularización
+						<ul>
+							<li>Procedimientos</li>
+							<li>Macros</li>
+						</ul><br>
+						Tema 4: Programación
+						<ul>
+							<li>El buffer de video en modo texto</li>
+							<li>Acceso a discos en lenguaje enslambador</li>
+							<li>Programación serial</li>
+							<li>Programación del puerto pararelo</li>
+							<li>Programación híbrida</li>
+							<li>Programación de puerto usb</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Pop up para crear un paquete -->
+			<div class="pop-up-crear-paquete" id="pop_up_crear_paquete">
+				<div class="ventana_crear_paquete">
+					<div class="encabezado_crea_paq">Creación de paquete
+						<div class="Close-Overlay" id="close_overlay_paquetes"><img src="Imágenes/close_white.png" width="15px" height="15px"></div>
+					</div>
+					<div class="paquete_creado">
+						Paquete 1:
+						<ul>
+							<li>Actividad 1</li>
+							<li>Actividad 2</li>
+							<li>Actividad 3</li>
+						</ul>
+						<p>Temas a aplicar:</p>
+						<div class="botones_temas">
+							
+							<button class="btn_tema1">1</button>
+							<button class="btn_tema2">2</button>
+							<button class="btn_tema3">3</button>
+							<button class="btn_tema4">4</button>
+						</div>	
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Contenedor padre para la tabla de las actividades -->
+			<div class="lista_actividades">
+				<!-- Contenedor de encabezado de la tabla de aprendizaje -->
+				<div class="encabezado_aprendizaje" id="encabezado__aprendizaje">
+					<img src="Imágenes/left.png" width="4%" class="back">
+					Actividades de aprendizaje
+					<img src="Imágenes/right.png" width="4%" class="next" id="next_apr">
+				</div>
+
+				<!-- Contenedor de las actividades -->
+				<div class="listado_act_comp">
+					<!-- Lista con todas las opciones disponibles -->
+					<ul>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_1">
+							<label for="opcion-actividad">Elaborar un cuadro sinóptico</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_2">
+							<label for="opcion-actividad">Elaborar un cuadro comparativo</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_3">
+							<label for="opcion-actividad">Elaborar una matriz de clasificación</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_4">
+							<label for="opcion-actividad">Elaborar una matriz de inducción</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_5">
+							<label for="opcion-actividad">Elaborar y/o ejecutar un proyecto</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_6">
+							<label for="opcion-actividad">Diagrama radial</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_7">
+							<label for="opcion-actividad">Mapa mental</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_8">
+							<label for="opcion-actividad">Mapa cognitivo de calamar</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_9">
+							<label for="opcion-actividad">Debate</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_10">
+							<label for="opcion-actividad">Preguntas exploratorias</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_11">
+							<label for="opcion-actividad">Preguntas guía</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_12">
+							<label for="opcion-actividad">Diagrama de árbol</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_13">
+							<label for="opcion-actividad">Diagrama de flujo</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_14">
+							<label for="opcion-actividad">Diagrama de causa-efecto</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_15">
+							<label for="opcion-actividad">Mapa cognitivo de cajas</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_16">
+							<label for="opcion-actividad">Mapa cognitivo de algoritmo</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_17">
+							<label for="opcion-actividad">Mapa cognitivo de ciclos</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_18">
+							<label for="opcion-actividad">Webquest</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_19">
+							<label for="opcion-actividad">Simulación</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_20">
+							<label for="opcion-actividad">Estudio de caso</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_21">
+							<label for="opcion-actividad">Síntesis</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_22">
+							<label for="opcion-actividad">Taller</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_23">
+							<label for="opcion-actividad">Aprendizaje basado en problemas</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_24">
+							<label for="opcion-actividad">Aprendizaje cooperativo</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_25">
+							<label for="opcion-actividad">Investigación con tutoría</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_26">
+							<label for="opcion-actividad">Foro</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_26">
+							<label for="opcion-actividad">Ensayo</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_27">
+							<label for="opcion-actividad">Mapa cognitivo de aspectos comunes</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_28">
+							<label for="opcion-actividad">Correlación</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_29">
+							<label for="opcion-actividad">Analogía</label>
+						</li>
+						<li class="actividad"><input type="checkbox" name="opcion-actividad" id="opcion_planeacion_30">
+							<label for="opcion-actividad">Técnica heuristica de Gowin</label>
+						</li>
+					</ul>
+				</div>
+				<!-- Botones -->
+				
+				
+
+			</div>
+			<div class="botones_apr">
+					<button><img src="Imágenes/add.png" width="90%"></button>
+					<button><img src="Imágenes/search.png" width="90%"></button>
+					<button class="crear-paquete"><img src="Imágenes/new-folder.png" width="90%" id="crear_paquete"></button>
+					<button><img src="Imágenes/folder.png" width="90%"></button>
+					<button class="abrir-temas"><img src="Imágenes/books.png" width="90%" id="abrir_temas"></button>
+				</div>
+
+			<!-- Barra de progreso -->
+			<div class="rombo">
+				<div class="rombo rombo1"></div>
+				<div class="rombo rombo2"></div>
+				<div class="rombo rombo3"></div>
+				<div class="rombo rombo4"></div>
+				<div class="rombo rombo5"></div>
+				<div class="rombo barrita"></div>
+				
+			</div>
+						
+		</div>
+		
+		<!-- Mando a llamar el archivo js que contiene todas las animaciones,
+		se hace de último ya que nos interesa que cargue primero todos los elementos
+		antes que las animaciones -->
+		<script src="JS/animaciones.js"></script>
+		<script src="JS/jsPDF-1.3.2/jsPDF-1.3.2/dist/jspdf.debug.js"></script>
+		
+	</body>
+	
+</html>

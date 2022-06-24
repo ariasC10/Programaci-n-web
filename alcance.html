@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+	initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Sistema ITCH</title>
+		<!-- Icono -->
+		<link rel="shorcut icon" type="image/x-icon" href="Imágenes/tecnm.ico">
+		<!-- Fuentes -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/7e5b2d153f.js" crosorigin="anonymus"></script>
+		<!-- Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+
+
+	<!-- Comienzo del body -->
+	<body>
+
+		<div class="contenedor">
+			<!-- Comienzo del header -->
+			<header>
+				<!-- Menú oculto p1 -->
+				<div class="opciones" id="opciones_menu_hide">
+					<ul>
+						<li><img src="Imágenes/diskette.png" class="save" id="id_save"></li>
+						<li><img src="Imágenes/repo.png" class="rep-planeaciones" id="id_planeaciones"></li>
+						<li><a href="" onclick="openPDF()"><img src="Imágenes/pdf.png"></a></li>
+						<!-- Regresa al menú principal -->
+						<li><a href="paginaprincipal.html"><img src="Imágenes/house.png"></a></li>
+					</ul>
+				</div>
+				<!-- Menú oculto p2 -->
+				<div class="menu_hide">
+					<div class="icon_abrir"><img src="Imágenes/sort-down.png" width="80%" height="80%"></div>
+					<div class="icon_cerrar"><img src="Imágenes/sort-up.png" width="80%" height="80%"></div>
+				</div>
+
+
+
+				<nav class="menu">
+					<ul class="nav_menu" id="nav_menu_id">
+						<li><a href="actividades de aprendizaje.html">ACTIVIDADES Y COMPETENCIAS</a></li>
+						<li><b href="#" class="alcance">IDENTIFICADORES DE ALCANCE</b></li>
+						<li><a href="evaluacion formativa.html">EVALUACIÓN FORMATIVA</a></li>
+						<li><a href="calend_temas.html">CALENDARIZACIÓN</a></li>
+						<li><a href="apoyo_didactico.html">APOYO DIDÁCTICO</a></li>
+					</ul>
+					<button class="toggle" id="menu_toggle">
+							<i class="fas fa-bars"></i>
+					</button>
+				</nav>
+				
+			</header>
+			<!-- Botón para visualizar la información general de la asignatura -->
+			<button class="btn_asig" id="btn-asig">Lenguajes de interfaz</button>
+			<!-- Pop up de la info general de la asignatura -->
+			<div class="pop-up-info-asig" id="pop_up_info_asig"> 
+				<div class="info_asig">
+					<!-- Encabezado de la ventana -->
+					<h2>Información general de la asignatura
+						<div class="Close-Overlay" id="Close_Overlay"><img src="Imágenes/close_white.png" width="15px" height="15px"></div>
+					</h2>
+					<!-- Contenido -->
+						<center class="datos_asig">
+							<p>
+								Asignatura: Lenguajes de interfaz			Clave: SCC-1014<br />
+								<br />
+								Departamento: Departamento de Sistemas y Computación<br />
+								<br />
+								Horas teoricas: 3		Horas prácticas: 2	Período: Feb-Jun/2022
+							</p>
+							
+						</center>
+				</div>
+			</div>	
+
+			<!-- Pop up para guardar la info -->
+			<div class="pop-up-save" id="pop_up_save">
+				<div class="ventana_save">
+					<img src="Imágenes/alert.png">
+					<p>¿Desea guardar los cambios?</p>
+					<button class="btn-guardar" id="btn_guardar">Guardar</button>
+					<button class="btn-cancelar" id="btn_cancelar">Cancelar</button>
+				</div>
+			</div>
+
+
+			<!-- Pop up para cargar planeaciones -->
+			<div class="pop-up-upload-plan" id="pop_up_upload_plan">
+				<div class="ventana_planeaciones">
+					<div class="encabezado_planeaciones">Repositorio de planeaciones</div>
+					<div>
+						<p>Seleccione la planeacion que desee</p>
+						<ul>
+							<li><input type="radio" name="opcion-planeaciones" value="opcion-1" id="opcion_planeacion_1"><label for="opcion-1" onclick="openPDF()"> Docente: Lucy Cárdenas | Feb/Jun 2020-Lenguajes de interfaz I6A</label></li>
+							<li><input type="radio" name="opcion-planeaciones" value="opcion-2" id="opcion_planeacion_2"><label for="opcion-2" onclick="openPDF()"> Docente: Zarina Basulto | Ago/Dic 2018-Lenguajes de interfaz I6B</label></li>
+						</ul>
+						<button class="btn-guardar-plan" id="btn_guardar_plan">Guardar</button>
+						<button class="btn-cancelar-plan" id="btn_cancelar_plan">Cancelar</button>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Nombres de las columnas -->
+			<div class="encabezado">
+				<p class="encabezado Temas">Temas</p>
+				<p class="encabezado Cont-Central">Indicadores de alcance</p>
+			</div>
+			
+			<!-- Filas para cada tema -->
+			<div class="tema1">
+				<div class="tema1 tema_1"><p>Introducción al lenguaje ensamblador</p></div>
+				<button class="tema1 indicador1">A</button>
+				<div class="tema1 barra_gris1"></div>
+				<button class="tema1 indicador2">B</button>
+			</div>
+			<div class="tema2">
+				<div class="tema2 tema_2">Programación básica</div>
+				<button class="tema1 indicador1">A</button>
+				<div class="tema2 barra_gris2"></div>
+			</div>
+			<div class="tema3">
+				<div class="tema3 tema_3">Modularización</div>
+				<button class="tema1 indicador1">A</button>
+				<div class="tema3 barra_gris3"></div>
+				<button class="tema3 indicador2">B</button>
+			</div>
+			<div class="tema4">
+				<div class="tema4 tema_4">Programación de dispositivos</div>
+				<button class="tema1 indicador1">A</button>
+				<div class="tema4 barra_gris4"></div>
+				<button class="tema4 indicador2">B</button>
+			</div>
+
+			<!-- Barra de progreso -->
+			<div class="rombo">
+				<div class="rombo rombo1"></div>
+				<div class="rombo rombo2"></div>
+				<div class="rombo rombo3"></div>
+				<div class="rombo rombo4"></div>
+				<div class="rombo rombo5"></div>
+				<div class="rombo barrita"></div>
+				
+			</div>
+						
+		</div>
+		
+		<!-- Mando a llamar el archivo js que contiene todas las animaciones,
+		se hace de último ya que nos interesa que cargue primero todos los elementos
+		antes que las animaciones -->
+		<script src="JS/animaciones.js"></script>
+	</body>
+	
+</html>

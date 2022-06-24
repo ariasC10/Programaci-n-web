@@ -1,0 +1,1890 @@
+/*Cargo una fuente de manera local*/
+@font-face {
+	font-family: "OpenSans-SemiBold";
+	src:url('Fuentes/static/OpenSans/OpenSans-SemiBold.ttf');
+}
+/*
+El * indica que aplica para todo el documento
+*/
+*{
+	padding: 0px;
+	margin: 0px
+}
+/*Estilos aplicados para todo el header*/
+header {
+	font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+	font-size: 16px;
+	width: 100%;
+}
+
+/*Estilos aplicados para todo el body*/
+body {
+	/*Fondo*/
+	background: url('Imágenes/so-white.png');
+	font-family: 'Open Sans','OpenSans-SemiBold',sans-serif;
+	text-decoration: none;
+	font-size: 16px;
+	width: 100%;
+
+}
+
+
+.loading {
+	opacity: 0;
+}
+
+/*++++++++++++++++Header+++++++++++++++++++++++++++*/
+/*Menú oculto*/
+.menu_hide {
+	padding: 7px 6px 6px 14px;
+    /*Figura*/
+	background: #FAF8EC;
+	width: 3%;	
+	margin: 0px 0px 0px 0px;
+	border: 2px solid #000;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	position: absolute;
+	cursor: pointer;
+	z-index: 12;
+}
+
+/*Asigno el despliegue del menú por bloques*/
+.menu_hide .icon_abrir{
+	display: block;
+}
+
+/*Cierra el despliegue del menú*/
+.menu_hide .icon_cerrar{
+	display: none;
+}
+
+/*Estilos aplicados a las opciones dentro del menú oculto*/
+.opciones ul {
+	position: absolute;
+	background: #FAF8EC;
+	width: 3%;
+	height: 45vh;
+	list-style: none;
+	
+	display: block;
+	border: 2px solid #000;
+	z-index: 11;
+	padding: 0px 6px 0px 14px;
+	transition: all 500ms;
+	top: -100%;
+}
+
+/*Le asigno un padding a todos los elementos del menú oculto*/
+.opciones ul li{
+	padding: 25px 3px 4px 3px;
+}
+
+/*Le asigno un padding diferente al primer elemento del menú oculto*/
+.opciones ul li .save{
+	padding: 50px 3px 4px 2px;
+}
+ .menu{
+ 	display: flex;
+ }
+
+/*Estilos aplicados al menú de navegación entre secciones de la planeación*/
+.nav_menu {
+	list-style: none;
+	background: #29588E;
+	width: 95.2%;
+	border: 2px solid #000;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	margin: 0px 0px 0px 68px;
+	display: flex;
+	z-index: 12;
+
+}
+
+.toggle {
+	color: #fff;
+	background: none;
+	font-size: 30px;
+	padding: 0 20px;
+	height: 60px;
+	cursor: pointer;
+	display: none;
+}	
+
+.nav_menu_visible {
+		left: 0%;
+	}
+
+
+/*Estilos aplicados a cada opción del menú*/
+.nav_menu li a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 12px 42px 12px 42px;
+	
+	
+	}
+
+/*Estilos aplicados para distinguir donde se encuentra situado el usuario*/
+
+.nav_menu li b {
+	
+	text-decoration: none;
+	display: block;
+	padding: 12px 42px 12px 42px;
+
+	
+	}
+
+.aprendizaje {
+	background: #FAF8EC;
+	color: #29588E;
+	}
+
+.alcance {
+	background: #FAF8EC;
+	color: #29588E;
+	}
+
+.eval_form {
+	background: #FAF8EC;
+	color: #29588E;
+	}
+
+.calend-temas {
+	background: #FAF8EC;
+	color: #29588E;
+	}
+
+/* Estilos aplicados al botón para visualizar la info general de la asignatura */
+.btn_asig {
+	/*Contenedor*/
+	width: 16%;
+	background: #FAF8EC;
+	margin-top: 18px;
+	margin-left: 620px;
+	background-position: center center;
+	border: 1px solid #000;
+	border-radius: 15px;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+
+	/*Botón*/
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 0px 10px 0px;
+	display: inline-block;
+	font-size: 18px;
+	}
+
+/*Hover para distinguir con mayor facilidad el botón*/
+.btn_asig:hover {
+	/*Botón*/
+	color: #fff;
+	background: #29588E;
+	
+	}
+
+/*Estilos aplicados para crear y ocultar el overlay 
+de la info general de la asignatura*/
+.pop-up-info-asig {
+	background-color: rgba( 0, 0, 0, 0.3);
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	transition: all 0.5s;
+	}
+
+/*Estilos aplicados para crear y ocultar el overlay 
+de la info general de la asignatura*/
+.pop-up-save {
+	background-color: rgba( 0, 0, 0, 0.3);
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 19;
+	transition: all 0.5s;
+	}
+
+/*Estilos para el overlay del repositorio de planeaciones*/
+.pop-up-upload-plan {
+	background-color: rgba( 0, 0, 0, 0.3);
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 18;
+	transition: all 0.5s;
+	}
+/*Estilos para el overlay del repositorio de planeaciones*/
+.pop-up-cont-tema {
+	background-color: rgba( 0, 0, 0, 0.3);
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 18;
+	transition: all 0.5s;
+}
+
+/*Estilos para el overlay de creación de paquetes*/
+.pop-up-crear-paquete {
+	background-color: rgba( 0, 0, 0, 0.3);
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 18;
+	transition: all 0.5s;
+}
+
+/*Clase que hereda los estilos de los overlay y entra en acción
+cuándo sucede un evento click (configuración en el js)*/
+.show {
+	pointer-events: auto;
+	opacity: 1;
+	}
+/*Estilos aplicados al contenedor de la info de la asignatura*/
+.info_asig{
+	width: 42%;
+	background: #fff;
+	text-align: center;
+	margin-left: 30%;
+	border-radius: 15px;
+	}
+
+/*Estilos aplicados para el encabezado del pop up info de la materia*/
+h2 {
+	background: #29588E;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	padding: 4px 2px 4px 2px;
+	border: 1px solid #000;
+	border-radius: 15px 15px 0px 0px;
+	
+	}
+/*Estilos aplicados para el botón de cerrar el pop up info de la materia*/
+.Close-Overlay{
+
+	float: right;
+	margin-top: 0px;
+	margin-right: 10px;
+	cursor: pointer;
+	z-index: 9999;
+	}
+
+/*Estilos aplicados a los datos de la materia*/
+.datos_asig p {
+	padding: 4%;
+	text-align: center;
+	font-family: 'OpenSans-SemiBold','Open Sans',sans-serif;
+	}
+
+/*Agregamos una acción para el botón de guardar cambios*/
+.save {
+	cursor: pointer;
+	}
+
+/*Estilos aplicados al contenedor de guardar cambios*/
+.ventana_save {
+	width: 30%;
+	height: 25%;
+	margin-left: 35%;
+	background: #fff;
+
+	font-size: 20px;
+	color: #000;
+	text-align: center;
+	padding: 4px 2px 4px 2px;
+	border: 1px solid #000;
+	border-radius: 15px 15px 15px 15px;
+	}
+
+/*Padding aplicado para el icono de warning*/
+.ventana_save img {
+	padding: 15px 0px 15px 0px;
+	}
+
+/*Estilos aplicados para los botones*/
+.ventana_save button {
+	background: #D9D9D9;
+	border: 1px solid #000;
+	width: 15%;
+	padding: 4px 4px 4px 4px;
+
+	}
+/*Estilos aplicados al botón guardar cambios*/
+.btn-guardar {
+	float: left;
+	margin: 30px 0px 10px 35px;
+	}
+
+/*Esilos aplicados al botón cancelar cambios*/
+.btn-cancelar {
+	float: right;
+	margin: 30px 35px 10px 0px;
+	}
+
+.btn-guardar-plan {
+	float: left;
+	margin: 15% 0% 5% 5%;
+	}
+
+.btn-cancelar-plan {
+	float: right;
+	margin: 15% 5% 5% 0%;
+	}
+
+/*Contenedor para la ventana del repositorio de planeaciones*/
+.ventana_planeaciones {
+	width: 50%;
+	margin-left: 25%;
+	height: 400px;
+	background: #fff;
+	font-size: 20px;
+	color: #000;
+	text-align: center;
+	
+	border: 1px solid #000;
+	border-radius: 15px 15px 15px 15px;
+	}
+/*Espaciado de los labels en el repositorio*/
+.ventana_planeaciones label {
+	margin-left: 2%;
+	cursor: pointer;
+	}
+
+/*Contenedor del encabezado de la ventana del repositorio de planeaciones*/
+.encabezado_planeaciones {
+	background: #29588E;
+	padding: 10px 10px 10px 10px;
+	border-radius: 13px 13px 0px 0px;
+	border: 1px solid #000;
+	color: #fff;
+	}
+
+/*Quitamos las viñietas de cada elemento dentro del listados*/
+.ventana_planeaciones ul {
+	list-style: none;
+	}
+
+/*Estilos aplicados a cada elemento dentro de la lista*/
+.ventana_planeaciones ul li {
+	margin-top: 3%;
+	margin-left: 4.2%;
+	background: #D9D9D9;
+	border: 1px solid #000;
+	padding: 7px 7px 7px 7px;
+	width: 90%;
+	}
+/*Margen superior para la etiqueta p*/
+.ventana_planeaciones p {
+	margin-top: 2%;
+	}
+ /*Evento para mostrar el pop up*/
+.rep-planeaciones{
+	cursor: pointer;
+	}
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++ ACTIVIDADES DE APRENDIZAJE +++++++++++++++++++++++++++++++++++++++++++++++++*/	
+/*Contenedor de la información sobre los temas de la asignatura*/
+.ventana_cont_tema {
+	width: 50%;
+	margin-left: 25%;
+	height: 400px;
+	font-size: 20px;
+	text-align: justify;
+	/*overflow-y: scroll;*/
+
+	border-radius: 15px 15px 15px 15px;
+}
+/*Estilos aplicados para el encabezado del pop up temas de la asignatura*/
+.ventana_cont_tema .encabezado_temas_asig {
+	background: #29588E;
+	color: #fff;
+	text-align: center;
+	border-radius: 15px 15px 0px 0px;
+	height: 10%;
+	padding-top: 5px;
+}
+/*Estilos aplicados para el icono X del pop up temas de la asignatura*/
+.ventana_cont_tema .encabezado_temas_asig img{
+	margin: 10px 0px 0px 0px;
+}
+/*Estilos aplicados para el contenedor de la descripción de temas de la asignatura*/
+.temas-asignatura {
+	background: #fff;
+	height: 400px;
+	font-size: 18px;
+	padding: 10px 10px 10px 50px;
+	overflow-y: scroll;
+	border-radius: 0px 0px 12px 12px;
+
+}
+/*Márgen izquierdo para cada elemento de la lista*/
+.temas-asignatura ul li{
+	margin-left: 4%;
+}
+/*Botón para abrir los temas de la asignatura*/
+.abrir-temas {
+	cursor: pointer;
+}
+
+/*Margin para centrar la tabla*/
+.lista_actividades {
+	margin-top: 3%;
+	margin-left: 20%;
+}
+
+/*Encabezado de la tabla*/
+.encabezado_aprendizaje {
+	width:75%;
+	height: 50px;
+	border: 1px solid #000;
+	background: #FAF8EC;
+	text-align: center;
+	font-size: 20px;
+	font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+	padding: 10px 0px 0px 0px;
+	border-radius: 15px 15px 0px 0px;
+	}
+
+/*Hago invisible el botón de volver en aprendizaje*/
+.encabezado_aprendizaje .back {
+	opacity: 0;
+	}
+
+
+/*Estilos para cambiar de ecabezado*/
+.next {
+	float: right;
+	margin-right: 3%;
+	cursor: pointer;
+	z-index: 9997;
+	}
+
+.back {
+	float: left;
+	margin-left: 3%;
+	cursor: pointer;
+	z-index: 9997;
+	}
+
+/*Estilos aplicados para el contenedor de las aplicaciones*/
+.listado_act_comp {
+	width: 75%;
+	height: 300px;
+	background: #fff;
+	overflow-y: scroll;
+	border: 1px solid #000;
+	}
+
+	.botones_apr{
+		margin-left: 21%;
+	}
+
+.botones_apr button {
+	background: #D9D9D9;
+	margin-top: 2%;
+	margin-left: 8.6%;
+	padding: 4px 4px 4px 4px;
+	border-radius: 50px;
+	}
+
+.botones_apr button img {
+	margin: 2% 2% 2% 1.5%;
+}
+
+/*Modificamos el tamaño de los radiobutton*/
+input[type=radio] {
+  transform: scale(1.5);
+	}
+
+/*Modificamos el tamaño de los checkbox*/
+input[type=checkbox] {
+  transform: scale(2);
+	}
+
+/*Estilos aplicados cada componente de la lista*/
+.listado_act_comp li {
+	padding: 2% 3% 2% 3%;
+	border: 1px solid #000;
+	}
+
+.listado_act_comp li label {
+	padding: 0% 0% 0% 3%;
+	
+	}
+/*Aplicando fuentes y tamaño a la lista de actividades*/
+.actividad {
+	font-size: 18px;
+	font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+	}
+
+.ventana_crear_paquete {
+	background: #fff;
+	margin-left: 25%;
+	width: 50%;
+	height: 500px;
+	border-radius: 20px 20px 15px 15px;
+}
+
+/* Encabezado de la ventana para crear paquetes */
+.encabezado_crea_paq{
+	background: #29588E;
+	color: #fff;
+	text-align: center;
+	padding: 10px 10px 10px 10px;
+	border-radius: 15px 15px 0px 0px;
+	border: 2px solid #000;
+	font-size: 18px;
+}
+/* Encabezado de la ventana para crear paquetes */
+.paquete_creado {
+	font-size: 18px;
+	margin-top: 3%;
+	text-align: center;
+}
+
+/* Encabezado de la ventana para crear paquetes */
+.paquete_creado p{
+	font-size: 18px;
+	padding-top: 18%;
+	text-align: center;
+
+}
+/* Estilos aplicados las actividades cargadas al crear paquetes */
+.paquete_creado ul {
+	list-style: none;
+	margin-top: 4%;
+	margin-left: 4%;
+}
+
+/*  */
+.paquete_creado ul li {
+	margin-top: 1%;
+	margin-left: 4.2%;
+	background: #D9D9D9;
+	border: 1px solid #000;
+	padding: 7px 7px 7px 7px;
+	width: 85%;
+}
+
+.botones_temas button {
+	margin-top: 2%;
+	background: #fff;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	color: #000;
+}
+
+.cambio_color_btn {
+	background: #29588E;
+	color: #fff;
+}
+
+
+/* Cambio en el cursor del botón de crear paquete */
+.crear-paquete {
+	cursor: pointer;
+}
+
+/*====================================INDICADORES DE ALCANCE=====================================*/
+/*Aplicando estilos al contenedor del escrito temas*/
+.Temas {
+	/*Contenedor*/
+	width: 7%;
+	background: #FAF8EC;
+	margin-top: 25px;
+	margin-left: 193px;
+	background-position: center center;
+	border: 1px solid #000;
+	border-radius: 15px;
+	position: relative;	
+	
+	/*Encabezado de la tabla*/
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+	padding: 8px 0px 8px 0px;
+	display: inline-block;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	}
+/*Aplicando estilos al contenedor del escrito central*/
+.Cont-Central {
+/*Contenedor*/
+	width: 16%;
+	background: #FAF8EC;
+	margin-top: 25px;
+	margin-left: 400px;
+	background-position: center center;
+	border: 1px solid #000;
+	border-radius: 15px;
+	position: relative;
+	/*Encabezado de la tabla*/
+	
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+	padding: 8px 0px 8px 3px;
+	display: inline-block;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	}
+/*Aplicando estilos al contenedor del tema 1*/
+.tema_1 {
+	/*Contenedor*/
+	width: 12%;
+	background: #BDE5FC;
+	border: 1px solid #000;
+	position: relative;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 150px;
+	text-align: center;
+	background-position: center center;
+	
+	/*Encabezado*/
+	color: #000;
+	text-decoration: none;
+	padding: 6px 6px 6px 6px;
+	display: inline-block;
+	
+	}
+/*Aplicando estilos a la barra donde se colocan los indicadores*/
+.barra_gris1{
+	/*Contenedor*/
+	width: 60%;
+	height: 15px;
+	background: #D9D9D9;
+	border: 1px solid #000;
+	position: absolute;
+	border-radius: 7px;
+	margin-top: 50px;
+	margin-bottom: 7px;
+	display: inline-block;
+	background-position: center center;
+	
+ }
+/*Aplicando estilos al botón del indicador 1*/
+.indicador1 {
+	/*Contenedor*/
+	width: 3%;
+	background: #29588E;
+	background-position: center center;
+	border: 1px solid #000;
+	border-radius: 25px;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	position: relative;
+	left: 7%;
+	bottom: 10px;
+
+	/*Botón*/
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 0px 10px 0px;
+	display: inline-block;
+	font-size: 18px;
+	cursor: pointer;
+	z-index: 1;	
+	}
+
+	.indicador2 {
+	/*Contenedor*/
+	width: 3%;
+	background: #6BB4DD;
+	background-position: center center;
+	border: 1px solid #000;
+	border-radius: 25px;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	position: relative;
+	left: 10%;
+	bottom: 10px;
+
+	/*Botón*/
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 0px 10px 0px;
+	display: inline-block;
+	font-size: 18px;
+	cursor: pointer;
+	z-index: 2;	
+	}
+
+
+/*Aplicando estilos al contenedor del tema 2*/
+.tema_2 {
+	/*Contenedor*/
+	width: 12%;
+	background: #BDE5FC;
+	border: 1px solid #000;
+	position: relative;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 150px;
+	text-align: center;
+	background-position: center center;
+	
+	/*Encabezado*/
+	color: #000;
+	text-decoration: none;
+	padding: 6px 6px 6px 6px;
+	display: inline-block;	
+ }
+/*Aplicando estilos a la barra donde se colocan los indicadores*/
+.barra_gris2{
+	/*Contenedor*/
+	width: 60%;
+	height: 15px;
+	background: #D9D9D9;
+	border: 1px solid #000;
+	position: relative;
+	border-radius: 7px;
+	display: inline-block;
+	background-position: center center;
+	overflow: hidden;
+	}
+/*Aplicando estilos al contenedor del tema 3*/
+.tema_3 {
+	/*Contenedor*/
+	width: 12%;
+	background: #BDE5FC;
+	border: 1px solid #000;
+	position: relative;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 150px;
+	text-align: center;
+	background-position: center center;
+	
+	/*Encabezado*/
+	color: #000;
+	text-decoration: none;
+	padding: 6px 6px 6px 6px;
+	display: inline-block;		
+	}
+	/* Indicador 2 para el tema 3 */
+	.tema3 .indicador2 {
+	/*Contenedor*/
+	width: 3%;
+	background: #6BB4DD;
+	background-position: center center;
+	border: 1px solid #000;
+	border-radius: 25px;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	position: relative;
+	left: -50.3%;
+	bottom: 10px;
+
+	/*Botón*/
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 0px 10px 0px;
+	display: inline-block;
+	font-size: 18px;
+	cursor: pointer;
+	z-index: 2;	
+	}
+
+/*Aplicando estilos a la barra donde se colocan los indicadores*/
+.barra_gris3{
+	/*Contenedor*/
+	width: 60%;
+	height: 15px;
+	background: #D9D9D9;
+	border: 1px solid #000;
+	position: relative;
+	border-radius: 7px;
+	display: inline-block;
+	background-position: center center;
+	overflow: hidden;
+ }
+/*Aplicando estilos al contenedor del tema 4*/
+.tema_4 {
+	/*Contenedor*/
+	width: 12%;
+	background: #BDE5FC;
+	border: 1px solid #000;
+	position: relative;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 150px;
+	text-align: center;
+	background-position: center center;
+	
+	/*Encabezado*/
+	color: #000;
+	text-decoration: none;
+	padding: 6px 6px 6px 6px;
+	display: inline-block;		
+ }
+
+ /* Indicador 2 para el tema 4 */
+	.tema4 .indicador2 {
+	/*Contenedor*/
+	width: 3%;
+	background: #6BB4DD;
+	background-position: center center;
+	border: 1px solid #000;
+	border-radius: 25px;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+	position: relative;
+	left: -50.3%;
+	bottom: 10px;
+
+	/*Botón*/
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 0px 10px 0px;
+	display: inline-block;
+	font-size: 18px;
+	cursor: pointer;
+	z-index: 2;	
+	}
+
+/*Aplicando estilos a la barra donde se colocan los indicadores*/
+.barra_gris4{
+	/*Contenedor*/
+	width: 60%;
+	height: 15px;
+	background: #D9D9D9;
+	border: 1px solid #000;
+	position: relative;
+	border-radius: 7px;
+	margin-top: 0px;
+	margin-bottom: 7px;
+	margin-left: 0px;
+	display: inline-block;
+	background-position: center center;
+	overflow: hidden;
+ }
+
+/*============================================ EVALUACIONES FORMATIVAS =================================*/
+.temas-eval {
+	width: 298px;
+	height: 400px;
+	margin-left: 7%;
+	margin-top: 3%;
+	position: absolute;
+
+}
+/*Elimino las viñetas de la lista*/
+.temas-eval ul {
+	list-style: none;
+}
+/*Estilos aplicados a la lista con los temas para evaluaciones formativas*/
+.temas-eval ul li {
+	text-align: center;
+	background: #B4E1FC;
+	border: 1px solid #000;
+	padding: 13% 2px 13% 2px;
+	margin-bottom: 2px;
+
+}
+
+/*Contenedor para las descripciones*/
+.eval-formativas {
+	width: 70%;
+	height: 400px;
+	margin-left: 405px;
+	margin-top: 3%;
+	
+}
+/*Contenedor para las descripciones*/
+.eval-formativas textarea{
+	resize: none;
+	width: 100%;
+	height: 24%;
+}
+
+/*---Footer---*/
+/*Contenedor de la barra de progeso*/
+.rombo {
+	height: 90px;
+}
+/*Figura de la barra de progreso*/
+.rombo1 {
+	width: 30px;
+	height: 30px;
+	background: #10E9C2;
+	border: 2px solid #000;
+	position: absolute;
+	left: 32%;
+	margin-top: 55px;
+	transform: rotate(45deg);
+	z-index: 1;
+	}
+/*Figura de la barra de progreso*/
+.rombo2 {
+	width: 30px;
+	height: 30px;
+	background: #10E9C2;
+	border: 2px solid #000;
+	position: absolute;
+	left: 40%;
+	margin-top: 55px;
+	transform: rotate(45deg);
+	z-index: 1;
+	}
+/*Figura de la barra de progreso*/
+.rombo3 {
+	width: 30px;
+	height: 30px;
+	background: #10E9C2;
+	border: 2px solid #000;
+	position: absolute;
+	left: 48%;
+	margin-top: 55px;
+	transform: rotate(45deg);
+	z-index: 1;
+	}
+/*Figura de la barra de progreso*/
+.rombo4 {
+	width: 30px;
+	height: 30px;
+	background: #10E9C2;
+	border: 2px solid #000;
+	position: absolute;
+	left:  56%;
+	margin-top: 55px;
+	transform: rotate(45deg);
+	z-index: 1;
+	}
+/*Figura de la barra de progreso*/
+.rombo5 {
+	width: 30px;
+	height: 30px;
+	background: #10E9C2;
+	border: 2px solid #000;
+	position: absolute;
+	left: 65%;
+	margin-top: 55px;
+	transform: rotate(45deg);
+	z-index: 1;
+	}
+/*Barra donde se coloca los rombos*/
+.barrita {
+	/*Contenedor*/
+	width: 34%;
+	height: 10px;
+	background: #D9D9D9;
+	background-position: center;
+	border: 1px solid #000;
+	position: absolute;
+	border-radius: 7px;
+	margin-top: 65px;
+ 	margin-left: 32%;
+	background-position: center;
+	}
+/*--------------------------------------------------------------Mediaquerie------------------------------------------------------------*/
+@media screen and (max-width: 1475px) {
+	/*Estilos aplicados al header*/
+	header {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		font-size: 14px;
+		width: 95%;
+	}
+	/*Estilos aplicados al body*/
+	body {
+		/*Fondo*/
+		background: url('Imágenes/so-white.png');
+		font-family: 'OpenSans-SemiBold','Open Sans',sans-serif;
+		text-decoration: none;
+		font-size: 12px;
+	}
+	/*Estilos aplicados al menu oculto*/
+	.menu_hide {
+		padding: 8px 7px 7px 16px;
+		margin: 0px 0px 0px 30px;
+		height: 29px;
+		box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+		position: absolute;
+	}
+	/*Opción para que funcione el evento de despliegue*/
+	.menu_hide .icon_cerrar{
+		display: none;
+	}
+	/*Estilos aplicados a la lista del menu oculto*/
+	.opciones ul {
+		position: absolute;
+		height: 47vh;
+		list-style: none;
+		margin: 0px 0px 0px 2%;
+
+		padding: 0px 12px 0px 11px;
+		transition: all 500ms;
+		top: -100%;
+	}
+	/*Estilos aplicados a las opciones del menu oculto*/
+	.opciones ul li{
+		padding: 22px 5px 3px 5px;
+	}
+ 	/*Estilos aplicados a las opciones del menu oculto*/
+	.opciones ul li .save{
+		padding: 50px 4px 4px 3px;
+	}
+	/*Estilos aplicados al contendor azul del menu de navegación*/
+	.nav_menu {
+		margin: 0px 0px 0px 96px;
+
+	}
+
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav_menu li a {
+		color: #fff;
+		text-decoration: none;
+		display: block;
+		padding: 5% 20px 5% 20px;
+	}
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav_menu li b {
+		
+		text-decoration: none;
+		display: block;
+		padding: 5% 20px 5% 20px;
+	}
+	/*Estilos aplicados a al botón para abrir la info general de la materia*/
+	.btn_asig {
+		width: 14%;
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		font-size: 16px;
+		margin-left: 42%;
+	}
+	/*Márgenes modificados para hacer responsive los contenedores de los temas*/
+	.tema_1 {
+		margin-left: 14%;
+	}
+
+	.tema_2 {
+		margin-left: 14%;
+	}
+
+	.tema_3 {
+		margin-left: 14%;
+	}
+
+	.tema_4 {
+		margin-left: 14%;
+	}
+	/*Márgenes modificados para hacer responsive las barras de los temas*/
+	.barra_gris1 {
+		margin-left: 0px;
+		width: 50%;
+	}
+	/*Márgenes modificados para hacer responsive los indicadores de los temas*/
+	.indicador1 {
+		margin-left: 1%;
+		width: 3%;
+		font-size: 14px;
+	}
+	/*Márgenes modificados para hacer responsive las barras de los temas*/
+	.barra_gris2 {
+		margin-left: 0px;
+		width: 50%;
+	}
+	/*Márgenes modificados para hacer responsive las barras de los temas*/
+	.barra_gris3 {
+		margin-left: 0px;
+		width: 50%;
+	}
+	/*Márgenes modificados para hacer responsive las barras de los temas*/
+	.barra_gris4 {
+		margin-left: 0px;
+		width: 50%;
+	}
+	/*Márgenes modificados para hacer responsive del contenedor de temas*/
+	.Temas {
+		margin-left: 17%;
+		font-size: 14px;
+	}
+	/*Márgenes modificados para hacer responsive del contenedor central*/
+	.Cont-Central {
+		margin-left: 30%;
+		font-size: 14px;
+	}
+	/*Márgenes modificados para hacer responsive la barra de progreso*/
+	.rombo1 {
+		width: 25px;
+		height: 25px;
+	}
+
+	.rombo2 {
+		width: 25px;
+		height: 25px;
+	}
+
+	.rombo3 {
+		width: 25px;
+		height: 25px;
+	}
+
+	.rombo4 {
+		width: 25px;
+		height: 25px;
+	}
+
+	.rombo5 {
+		width: 25px;
+		height: 25px;
+	position: absolute;
+	}
+
+	.prog {
+		bottom: 0%;	
+	}
+
+	/*Margin para centrar la tabla*/
+	.lista_actividades {
+		margin-top: 3%;
+		margin-left: 20%;
+	}
+
+	/*Encabezado de la tabla de actividade de aprendizaje*/
+	.encabezado_aprendizaje {
+		width:70%;
+	}
+
+	/*Hago invisible el botón de volver en aprendizaje*/
+	.encabezado_aprendizaje .back {
+		opacity: 0;
+	}
+
+	/*Estilos aplicados para el contenedor de las aplicaciones*/
+	.listado_act_comp {
+		width: 70%;
+	}
+
+
+	/*Modificamos el tamaño de los checkbox*/
+	input[type=checkbox] {
+	  transform: scale(2);
+	}
+	/*Modificamos posición de los textarea eval-formativas*/
+	.eval-formativas {
+		margin-left: 400px;
+		height: 385px;
+	}
+	/*Modifico el tamaño de los textarea de evaluaciones formativas*/
+	.eval-formativas textarea {
+		width: 90%;
+	}
+	/*Ajusto el tamaño de la imagen para cambiar de encabezado*/
+	.lista_actividades .encabezado_aprendizaje img {
+		width: 4.5%;
+	}
+
+	/*Cambio del tamaño de fuente de los datos de la materia*/
+	.datos_asig {
+		font-size:  16px;
+	}
+
+	/*Cambiando el tamaño del título del pop up de info de la asignatura*/
+	h2 {
+		font-size: 18px;
+	}
+	/*Cambiando el tamaño de la fuente en el texto de en medio */
+	.ventana_save p {
+		font-size: 14px;
+	}
+	/*Estilos aplicados a los botones de pop up guardar cambios*/
+	.ventana_save button {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		width: 30%;
+		font-size: 10px;
+	}
+	/*Mágenes aplicados para los botones de guardar o cancelar del pop up guardar*/
+	.btn-guardar { 
+		margin-top: 15px;
+	}
+
+	.btn-cancelar {
+		margin-top: 15px;
+	}
+
+	.ventana_planeaciones {
+		width: 40%;
+		margin-left: 28%;
+	}
+
+	/*Estilos aplicados a cada elemento dentro de la lista*/
+	.ventana_planeaciones ul li {
+		margin-top: 2%;
+		margin-left: 4.2%;
+		padding: 7px 7px 7px 0px;
+		width: 90%;
+
+	}
+	/*Cambio en el tamaño de fuentes para el encabezado del pop up cargar planeaciones*/
+	.ventana_planeaciones .encabezado_planeaciones {
+		font-size: 15px;
+	}
+
+	/*Cambio en el tamaño de fuentes del texto dentro del pop up cargar planeaciones*/
+	.pop-up-upload-plan p{
+		font-size: 14px;
+	}
+	/*Cambio en el tamaño de fuentes de las opciones dentro del pop up cargar planeaciones*/
+	.pop-up-upload-plan label {
+		font-size: 13px;
+	}
+	/*Márgenes nuevos para la lista de actividades de actividades de aprendizaje*/
+	.lista_actividades {
+		width: 75%;
+		margin-left: 23%;
+
+	}
+
+	.indicador2 {
+		display: inline-block;
+		font-size: 14px;
+		cursor: pointer;
+		z-index: 2;	
+	}
+
+	/* Indicador 2 para el tema 3 */
+	.tema3 .indicador2 {
+		/*Contenedor*/
+		left: -40.3%;
+		bottom: 10px;
+
+		/*Botón*/
+		display: inline-block;
+		font-size: 14px;
+		cursor: pointer;
+		z-index: 2;	
+	}
+
+	 /* Indicador 2 para el tema 4 */
+	.tema4 .indicador2 {
+		/*Contenedor*/
+		position: relative;
+		left: -40.3%;
+		bottom: 10px;
+
+		/*Botón*/
+		display: inline-block;
+		font-size: 14px;
+		cursor: pointer;
+		z-index: 2;	
+	}
+	/* Márgen para los botones de actividades de aprendizaje */
+	.botones_apr {
+		margin-left: 20%;
+	}
+
+} /* Fin del primer mediaquerie */
+
+
+
+/*--------------------------------------------------------Mediaquerie------------------------------------------------------*/
+@media screen and (max-width: 1220px) {
+	/*Estilos aplicados al header*/
+	header {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		font-size: 14px;
+		width: 95%;
+	}
+	/*Estilos aplicados al body*/
+	body {
+		/*Fondo*/
+		background: url('Imágenes/so-white.png');
+		font-family: 'OpenSans-SemiBold','Open Sans',sans-serif;
+		text-decoration: none;
+		font-size: 12px;
+
+	}
+	/*Estilos aplicados al menu oculto*/
+	.menu_hide {
+		padding: 0.9% 0.8% 0.25% 1.2%;
+		margin: 0px 0px 0px 28px;
+		height: 28px;
+		box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+		position: absolute;
+	}
+	/*Opción para que funcione el evento de despliegue*/
+	.menu_hide .icon_abrir{
+		display: block;
+	}
+	/*Opción para que funcione el evento de despliegue*/
+	.menu_hide .icon_cerrar{
+		display: none;
+	}
+	/*Estilos aplicados a la lista del menu oculto*/
+	.opciones ul {
+		position: absolute;
+		height: 40vh;
+		list-style: none;
+		margin: 0px 0px 0px 1.8%;
+
+		padding: 0px 12px 0px 11px;
+		transition: all 500ms;
+		top: -100%;
+	}
+	/*Estilos aplicados a las opciones del menu oculto*/
+	.opciones ul li{
+		padding: 17px 5px 4px 1px;
+	}
+	/*Estilos aplicados a las opciones del menu oculto*/
+	.opciones ul li .save{
+		padding: 50px 4px 4px 1px;
+	}
+	/*Estilos aplicados al contendor azul del menu de navegación*/
+	.nav_menu {
+		margin: 0px 0px 0px 88px;
+		display: flex;
+		z-index: 1;
+	}
+
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav_menu li a {
+		color: #fff;
+		text-decoration: none;
+		display: block;
+		padding: 5% 9px 5% 9px;
+	}	
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav_menu li b {
+		
+		text-decoration: none;
+		display: block;
+		padding: 5% 9px 5% 8px;
+	}
+
+	/*Márgenes modificados para hacer responsive del contenedor de temas*/
+	.Temas {
+		font-size: 13px;
+	}
+	/*Márgenes modificados para hacer responsive del contenedor central*/
+	.Cont-Central {
+		font-size: 13px;
+	}
+
+	/*Estilos aplicados al botón de cambiar de encabezado en actividades de aprendizaje*/
+	.botones_apr button{
+	padding: 5px;
+	margin-left: 6.5%;
+	margin-bottom: 1.2%;
+	}
+	/* Cambios en el  tamaño de fuente del nombre de la asignatura*/
+	.btn_asig {
+		font-size: 14px;
+	}
+
+ 	/*Cambio del tamaño de fuente de los datos de la materia*/
+	.datos_asig {
+		font-size:  14px;
+	}
+
+	/*Cambiando el tamaño del título del pop up de info de la asignatura*/
+	h2 {
+		font-size: 16px;
+	}
+	/*Cambiando el tamaño de la fuente en el texto de en medio */
+	.ventana_save p {
+		font-size: 14px;
+	}
+	/*Estilos aplicados a los botones de pop up guardar cambios*/
+	.ventana_save button {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		width: 30%;
+		font-size: 10px;
+	}
+	/*Mágenes aplicados para los botones de guardar o cancelar del pop up guardar*/
+	.btn-guardar { 
+		margin-top: 15px;
+	}
+
+	.btn-cancelar {
+		margin-top: 15px;
+	}
+
+	/*Estilos aplicados a cada elemento dentro de la lista*/
+	.ventana_planeaciones ul li {
+		margin-top: 2%;
+		margin-left: 4.2%;
+		padding: 7px 7px 7px 2px;
+		width: 90%;
+	}
+	/*Cambio en el tamaño de fuentes para el encabezado del pop up cargar planeaciones*/
+	#encabezado__aprendizaje {
+		font-size: 16px;
+	}
+	/*Cambio en el tamaño de fuentes del texto dentro del pop up cargar planeaciones*/
+	.pop-up-upload-plan p{
+		font-size: 14px;
+	}
+	/*Cambio en el tamaño de fuentes de las opciones dentro del pop up cargar planeaciones*/
+	.pop-up-upload-plan label {
+		font-size: 13px;
+	}
+	/*Márgenes nuevos para la lista de actividades de actividades de aprendizaje*/
+	.lista_actividades {
+		width: 75%;
+		margin-left: 23%;
+
+	}
+
+	.lista_actividades li {
+		font-size: 14px;
+
+	}
+
+}  /* Fin del segundo mediaquerie */
+
+/*--------------------------------------------------------mediaquerie-----------------------------------------------------------*/
+@media screen and (max-width: 1070px) {
+	/*Estilos aplicados al header*/
+	header {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		font-size: 12px;
+		width: 95%;
+		text-align: center;
+	}
+	/*Estilos aplicados al body*/
+	body {
+		/*Fondo*/
+		background: url('Imágenes/so-white.png');
+		font-family: 'OpenSans-SemiBold','Open Sans',sans-serif;
+		text-decoration: none;
+		font-size: 10px;
+
+	}
+	/*Estilos aplicados al menu oculto*/
+	.menu_hide {
+		padding: 0.5% 0.8% 0.22% 1%;
+		margin: 0px 0px 0px 1.85%;
+		height: 28px;
+		box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+		position: absolute;
+	}
+	/*Opción para que funcione el evento de despliegue*/
+	.menu_hide .icon_abrir{
+		display: block;
+	}
+	/*Opción para que funcione el evento de despliegue*/
+	.menu_hide .icon_cerrar{
+		display: none;
+	}
+	/*Estilos aplicados a la lista del menu oculto*/
+	.opciones ul {
+		position: absolute;
+		height: 40vh;
+		list-style: none;
+		margin: 0px 0px 0px 1.7%;
+
+		padding: 0px 9.5px 0px 10px;
+		transition: all 500ms;
+		top: -100%;
+	}
+	/*Estilos aplicados a las opciones del menu oculto*/
+	.opciones ul li{
+		padding: 18px 7px 4px 0px;
+	}
+	/*Le asigno un padding diferente al primer elemento del menú oculto*/
+	.opciones ul li .save{
+		padding: 48px 6px 4px 0px;
+	}
+	/*Estilos aplicados al contendor azul del menu de navegación*/
+	.nav_menu {
+		margin: 0px 0px 0px 7.4%;
+
+	}
+
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav_menu li a {
+		color: #fff;
+		text-decoration: none;
+		display: block;
+		padding: 5% 5px 5% 5px;
+	}
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav_menu li b {
+		
+		text-decoration: none;
+		display: block;
+		padding: 5% 5px 5% 5px;
+	}
+
+	/*Márgenes modificados para hacer responsive del contenedor de temas*/
+	.Temas {
+		font-size: 13px;
+	}
+	/*Márgenes modificados para hacer responsive del contenedor central*/
+	.Cont-Central {
+		font-size: 13px;
+	}
+
+	.botones_apr button{
+		padding: 5px;
+		margin-left: 6.5%;
+		margin-bottom: 1.2%;
+	}
+
+	.lista_actividades .encabezado_aprendizaje{
+		font-size: 18px;
+	}
+
+	/*Ajusto el tamaño de la flecha*/
+	.lista_actividades .encabezado_aprendizaje img {
+		width: 6%;
+	}
+
+	.lista_actividades label {
+		font-size: 14px;
+	}
+
+	/*Modificamos el tamaño de los checkbox*/
+	input[type=checkbox] {
+	  transform: scale(1.5);
+	}
+
+	/*Cambiando el tamaño de la fuente en el botón de info general de la asignatura*/
+	.btn_asig {
+		font-size: 13px;
+	}
+	/*Cambio del tamaño de fuente de los datos de la materia*/
+	.datos_asig {
+		font-size:  14px;
+	}
+
+	/*Cambiando el tamaño del título del pop up de info de la asignatura*/
+	h2 {
+		font-size: 14px;
+	}
+	/*Cambiando el tamaño de la fuente en el texto de crear */
+	.ventana_save p {
+		font-size: 14px;
+		padding-top: 10px;
+	}
+	/*Estilos aplicados a los botones de pop up guardar cambios*/
+	.ventana_save button {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		width: 30%;
+		font-size: 10px;
+	}
+	/*Mágenes aplicados para los botones de guardar o cancelar del pop up guardar*/
+	.btn-guardar { 
+		margin-top: 50px;
+	}
+
+	.btn-cancelar {
+		margin-top: 50px;
+	}
+
+	/*Estilos aplicados a cada elemento dentro de la lista*/
+	.ventana_planeaciones ul li {
+		margin-top: 2%;
+		margin-left: 4.2%;
+		padding: 7px 7px 7px 2px;
+		width: 90%;
+	}
+	/*Cambio en el tamaño de fuentes para el encabezado del pop up cargar planeaciones*/
+	.ventana_planeaciones .encabezado_planeaciones {
+		font-size: 15px;
+	}
+	/*Cambio en el tamaño de fuentes del texto dentro del pop up cargar planeaciones*/
+	.pop-up-upload-plan p{
+		font-size: 13px;
+	}
+	/*Cambio en el tamaño de fuentes de las opciones dentro del pop up cargar planeaciones*/
+	.pop-up-upload-plan label {
+		font-size: 13px;
+	}
+	/* Botones para cargar planeaciones */
+	.btn-guardar-plan {
+		margin-top: 180px;
+	}
+
+	.btn-cancelar-plan {
+		margin-top: 180px;
+	}
+
+	/*Márgenes nuevos para la lista de actividades de actividades de aprendizaje*/
+	.lista_actividades {
+		width: 75%;
+		margin-left: 23%;
+
+	}
+
+	.eval-formativas{
+		width: 65%;
+		margin-left: 373px;
+		height: 390px;
+	}
+
+	.temas-eval{
+		font-size: 13px;
+	}
+
+} /* Fin del tercer mediaquerie */
+
+/*------------------------------------------------------Mediaquerie---------------------------------------------------------------*/
+@media screen and (max-width: 872px) {
+	/* Estilos aplicados al header */
+	header {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		width: 100%;
+
+	}
+	/*Cambiando el tamaño de todos los componentes del menú oculto*/
+	.menu_hide {
+		padding: 10px 14px 5px 14px;
+		margin: 0px;
+		height: 25px;
+		box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+		
+	}
+
+	.menu_hide img {
+		width: 100%;
+	}
+
+	/*Estilos aplicados a la lista del menu oculto*/
+	.opciones ul {
+		width: 4.5%;
+		margin-left: 0%;
+	}
+	/*Estilos aplicados a las opciones del menu oculto*/
+	.opciones ul li .save{
+		margin-left: 0px;
+	}
+	/*Le asigno un padding diferente al primer elemento del menú oculto*/
+	.opciones ul li{
+		margin-left: 0px;
+	}
+	/*Estilos aplicados a los iconos del menu oculto*/
+	.opciones ul li img {
+		width: 30px;
+	}
+
+	/*Estilos aplicados al contendor azul del menu de navegación*/
+	.nav_menu {
+		width: 100%;
+		position: fixed;
+		align-items: center;
+		margin-left: 0%;
+		padding: 20px 0px 20px 0px;
+		flex-direction: column;
+		overflow-y: auto;
+		top: 44px;
+		left: 100%;
+		z-index: 14;
+		height: 100%;
+		font-size: 18px;
+
+		transition: all 500ms;
+		
+	}
+
+ 	.nav_menu_visible{
+ 		left: 0%;
+ 	}
+
+	.toggle {
+	color: #fff;
+	background: #29588E;
+	font-size: 30px;
+	padding: 5px 19px 5px 18px;
+	height: 44px;
+	margin-left: 88%;
+	display: block;
+	border: 2px solid #000;
+	}
+
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav-menu li a {
+		padding: 30px 8px 30px 8px;
+	}
+	/*Estilos aplicados a las opciones del menu de navegación*/
+	.nav-menu li b {
+		padding: 30px 8px 30px 8px;
+	}
+
+ .info_asig{
+ 		width: 60%;
+ 		margin-left: 20%;
+ 	}
+
+	/*Cambiando el tamaño de la fuente y el en el botón de info general de la asignatura*/
+	.btn_asig {
+		width: 26%;
+		margin-left: 38%;
+		font-size: 12px;
+	}
+	/*Cambio del tamaño de fuente de los datos de la materia*/
+	.datos_asig {
+		font-size:  12px;
+	}
+
+
+	/*Cambiando el tamaño del título del pop up de info de la asignatura*/
+	h2 {
+		font-size: 14px;
+	}
+	/*Cambiando el tamaño de la fuente en el texto de crear */
+	.ventana_save p {
+		font-size: 12px;
+	}
+	/*Estilos aplicados a los botones de pop up guardar cambios*/
+	.ventana_save button {
+		font-family: 'OpenSans-SemiBold','Open Sans', sans-serif;
+		width: 30%;
+		font-size: 10px;
+	}
+	/*Mágenes aplicados para los botones de guardar o cancelar del pop up guardar*/
+	.btn-guardar { 
+		margin-top: 15px;
+	}
+
+	.btn-cancelar {
+		margin-top: 15px;
+	}
+
+	/* Estilos aplicados a los botones de libres de actividades de aprendizaje */
+	.botones_apr button{
+		padding: 5px;
+		margin-left: 4%;
+		margin-bottom: 1.2%;
+	}
+
+	/*Estilos aplicados a cada elemento dentro de la lista*/
+	.ventana_planeaciones ul li {
+		margin-top: 2%;
+		margin-left: 4.2%;
+		padding: 7px 7px 7px 2px;
+		width: 90%;
+	}
+	/* Cambio de tamaño en la fuente para el encabezado del repositorio de planeaciones */
+	.ventana_planeaciones .encabezado_planeaciones {
+		font-size: 15px;
+	}
+	/* Cambio de tamaño en la fuente para el texto del repositorio de planeaciones */
+	.pop-up-upload-plan p{
+		font-size: 13px;
+	}
+	/* Cambio de tamaño en la fuente para el texto de las repositorio de planeaciones */
+	.pop-up-upload-plan label {
+		font-size: 13px;
+	}
+
+	#encabezado__aprendizaje {
+		font-size: 14px;
+		height: 33px;
+	}
+	/* Estilos aplicados al contenedor de la lista de actividades de actividades de aprendizaje */
+	.lista_actividades {
+		width: 75%;
+		margin-left: 23%;
+
+
+	}
+
+	.actividad {
+		font-size: 8px;
+	}
+
+	/* Cambio en el tamaño de fuente para el encabezado del pop up información de los temas */
+	.encabezado_temas_asig {
+		font-size: 14px;
+		text-align: center;
+
+	}
+	/* Cambio de tamaño en el botón para cerrar el popup */
+	.Close-Overlay{
+		width: 10px;
+	}
+
+	/* Estilos aplicados al contenedor con la info de los temas */
+	.temas-asignatura {
+		padding-left: 2%;
+		font-size: 12px;
+		border-radius: 0px 0px 12px 12px;
+	}
+	/* Cambio de márgenes a los botones de actividades de aprendizaje */
+	.botones_apr {
+		margin-top: 10%;
+		margin-left: 23%;
+	}
+/* Cambio de tamaño a los botones de actividades de aprendizaje */
+	.botones_apr button {
+		width: 40px;
+		height: 40px;
+	}
+	/* Cambio de ancho a los botones de actividades de aprendizaje */
+	.botones_apr img {
+		width: 90%;
+	}
+	/* Cambio de temaño en los rombos de la barra de progreso y su barrita*/
+	.rombo1{
+		margin-top: 40px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.rombo2{
+		margin-top: 40px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.rombo3{
+		margin-top: 40px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.rombo4{
+		margin-top: 40px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.rombo5{
+		margin-top: 40px;
+		width: 20px;
+		height: 20px;
+	}
+	.barrita{
+		margin-top: 45px;
+	}
+
+}
